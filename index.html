@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R.A LIMPEZA - Serviços Profissionais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-primario: #1a5f7a;
+            --azul-claro: #3498db;
+            --verde-suave: #2ecc71;
+            --branco: #ffffff;
+            --cinza-fundo: #f4f7f6;
+            --texto: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-fundo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* Header e Navegação */
+        header {
+            background: var(--branco);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2rem; 
+            color: var(--azul-primario);
+        }
+
+        .logo img {
+            height: 80px; 
+            margin-right: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--azul-primario);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--verde-suave);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
+            color: var(--branco);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 60px 5%;
+        }
+
+        .sobre {
+            background: var(--branco);
+            text-align: center;
+        }
+
+        /* Tabela de Preços */
+        .cards-precos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--azul-claro);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); border-top-color: var(--verde-suave); }
+
+        .preco-valor {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--verde-suave);
+            margin: 15px 0;
+        }
+
+        /* Contato / Orçamento (Acima) */
+        .contato {
+            background: var(--azul-primario);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .btn-contato {
+            display: inline-block;
+            background: var(--verde-suave);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-contato:hover { background: #27ae60; transform: scale(1.05); }
+
+        /* Trabalhe Conosco (Menor e Abaixo) */
+        .trabalhe-conosco {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 30px 5%; /* Padding reduzido */
+            border-top: 1px solid #ddd;
+        }
+
+        .trabalhe-conosco h3 {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .btn-whats-vagas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #25d366;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .btn-whats-vagas:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            background: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            .logo { font-size: 1.5rem; }
+            .logo img { height: 60px; }
+            .card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="R.A LIMPEZA">
+        R.A LIMPEZA
+    </div>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Orçamento</a>
+        <a href="#trabalhe">Vagas</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Excelência em Higienização Empresarial</h1>
+    <p>Transformamos seu ambiente de trabalho em um local mais saudável, produtivo e profissional.</p>
+</section>
+
+<section class="sobre" id="sobre">
+    <div class="container">
+        <h2>Sobre a R.A LIMPEZA</h2>
+        <p style="margin-top: 20px;">
+            A <strong>R.A LIMPEZA</strong> é uma empresa especializada na prestação de serviços de conservação e higienização para escritórios, consultórios e estabelecimentos comerciais. 
+        </p>
+    </div>
+</section>
+
+<section class="precos" id="planos">
+    <div class="container">
+        <h2 style="text-align: center;">Nossos Planos Mensais</h2>
+        <div class="cards-precos">
+            <div class="card">
+                <h3>Intermediário</h3>
+                <p>2 vezes por semana</p>
+                <div class="preco-valor">R$ 1.800,00</div>
+                <ul style="list-style: none; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--verde-suave);"></i> Insumos inclusos</li>
+                    <li><i class="fas fa-check" style="color: var(--verde-suave);"></i> Higienização de banheiros</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top-color: var(--verde-suave);">
+                <h3 style="color: var(--verde-suave);">Plano Business</h3>
+                <p>5 vezes na semana</p>
+                <div class="preco-valor">R$ 3.500,00</div>
+                <ul style="list-style: none; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--verde-suave);"></i> Limpeza Diária Completa</li>
+                    <li><i class="fas fa-check" style="color: var(--verde-suave);"></i> Emissão de Nota Fiscal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <div class="container">
+        <h2>Solicite um Orçamento Personalizado</h2>
+        <p>Atendimento rápido e eficiente para o seu negócio.</p>
+        
+        <div class="info-contato" style="margin-top: 20px;">
+            <p><i class="fab fa-whatsapp"></i> (51) 99506-9369 | <i class="far fa-envelope"></i> trxmooan@gmail.com</p>
+        </div>
+
+        <a href="https://wa.me/5551995069369" class="btn-contato" target="_blank">
+            FALAR NO WHATSAPP AGORA
+        </a>
+    </div>
+</section>
+
+<section class="trabalhe-conosco" id="trabalhe">
+    <div class="container">
+        <h3>Interesse em trabalhar conosco?</h3>
+        <p style="font-size: 0.9rem;">Envie seu currículo ou dados para contato via WhatsApp.</p>
+        <a href="https://wa.me/5551995069369?text=Olá,%20tenho%20interesse%20em%20vagas%20de%20trabalho" class="btn-whats-vagas" target="_blank">
+            <i class="fab fa-whatsapp"></i> Falar com Recrutamento
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 R.A LIMPEZA - CNPJ: 65.231.010/0001-83</p>
+</footer>
+
+</body>
+</html>
