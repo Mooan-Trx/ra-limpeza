@@ -8,7 +8,7 @@
     <style>
         :root {
             --azul-primario: #0f3443;
-            --azul-claro: #34e89e; /* Tom mais moderno/limpo */
+            --azul-claro: #34e89e; 
             --verde-suave: #2ecc71;
             --branco: #ffffff;
             --cinza-fundo: #f8fafc;
@@ -29,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* Header Glassmorphism */
+        /* Header */
         header {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
@@ -55,9 +55,13 @@
         }
 
         .logo img {
-            height: 50px; 
+            height: 50px;
+            width: 50px; /* Largura fixa para manter o círculo */
             margin-right: 12px;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+            border-radius: 50%; /* Logo Redonda */
+            object-fit: cover; /* Não distorce a imagem */
+            border: 2px solid var(--verde-suave);
         }
 
         nav a {
@@ -85,7 +89,7 @@
             width: 100%;
         }
 
-        /* Hero com Bolhas */
+        /* Hero */
         .hero {
             position: relative;
             height: 80vh;
@@ -101,7 +105,6 @@
             padding: 0 5%;
         }
 
-        /* O Canvas será onde as bolhas aparecem */
         #bubble-canvas {
             position: absolute;
             top: 0;
@@ -137,12 +140,13 @@
             margin-bottom: 30px;
         }
 
-        /* Tabela de Preços Profissional */
+        /* Tabela de Preços */
         .cards-precos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            align-items: start;
         }
 
         .card {
@@ -153,6 +157,9 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #eee;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: b;
         }
 
         .card:hover { 
@@ -163,16 +170,14 @@
         .card.featured {
             border: 2px solid var(--verde-suave);
             transform: scale(1.05);
+            background: #fff;
         }
 
-        /* Estilos de Contato e Vagas */
-        .contato {
-            background: #0f3443;
-            color: white;
-            padding: 100px 5%;
-            border-radius: 50px 50px 0 0;
+        .card.featured:hover {
+            transform: scale(1.08) translateY(-15px);
         }
 
+        /* Botões */
         .btn-contato {
             background: var(--verde-suave);
             padding: 18px 40px;
@@ -184,6 +189,28 @@
             margin-top: 30px;
             box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-contato:hover {
+            transform: scale(1.05);
+            background: #27ae60;
+        }
+
+        .btn-card {
+            padding: 12px 25px;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* Seções */
+        .contato {
+            background: #0f3443;
+            color: white;
+            padding: 100px 5%;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
         }
 
         .trabalhe-conosco {
@@ -202,7 +229,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
-            nav { display: none; } /* Sugestão: adicione um menu hamburguer depois */
+            nav { display: none; }
         }
     </style>
 </head>
@@ -235,7 +262,7 @@
         <span style="color: var(--verde-suave); font-weight: bold; text-transform: uppercase;">Quem Somos</span>
         <h2 style="font-size: 2.5rem; margin: 10px 0 20px;">Compromisso com a sua Saúde</h2>
         <p style="font-size: 1.1rem; color: #636e72;">
-            A <strong>R.A LIMPEZA</strong> utiliza tecnologia e processos rigorosos para garantir que seu escritório ou consultório seja um ambiente impecável para clientes e colaboradores.
+            A <strong>R.A LIMPEZA</strong> utiliza tecnologia e processos rigorosos para garantir que seu escritório seja um ambiente impecável para clientes e colaboradores.
         </p>
     </div>
 </section>
@@ -244,6 +271,7 @@
     <div class="container" style="max-width: 1100px; margin: 0 auto;">
         <h2 style="text-align: center; font-size: 2.2rem;">Planos Sob Medida</h2>
         <div class="cards-precos">
+            
             <div class="card">
                 <h3 style="color: #636e72;">Intermediário</h3>
                 <p>2x por semana</p>
@@ -252,8 +280,9 @@
                 </div>
                 <ul style="list-style: none; text-align: left; margin-bottom: 30px;">
                     <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Insumos Premium Inclusos</li>
-                    <li><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Higienização de Banheiros</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Higienização de Banheiros</li>
                 </ul>
+                <a href="https://wa.me/5551995069369?text=Olá, tenho interesse no Plano Intermediário" class="btn-contato btn-card">SAIBA MAIS</a>
             </div>
 
             <div class="card featured">
@@ -266,9 +295,11 @@
                 <ul style="list-style: none; text-align: left; margin-bottom: 30px;">
                     <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Limpeza Diária Completa</li>
                     <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Emissão de Nota Fiscal</li>
-                    <li><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Supervisor Dedicado</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Supervisor Dedicado</li>
                 </ul>
+                <a href="https://wa.me/5551995069369?text=Olá, tenho interesse no Plano Business" class="btn-contato btn-card">CONTRATAR AGORA</a>
             </div>
+            
         </div>
     </div>
 </section>
@@ -288,7 +319,7 @@
 <section class="trabalhe-conosco" id="trabalhe">
     <div class="container">
         <h3 style="font-size: 1.1rem; color: #666;">Quer fazer parte da nossa equipe?</h3>
-        <a href="https://wa.me/5551995069369?text=Olá,%20tenho%20interesse%20em%20vagas%20de%20trabalho" class="btn-whats-vagas" style="color: #25d366; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: block; margin-top: 10px;">
+        <a href="https://wa.me/5551995069369?text=Olá,%20tenho%20interesse%20em%20vagas%20de%20trabalho" style="color: #2ecc71; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: block; margin-top: 10px;">
             <i class="fab fa-whatsapp"></i> Enviar currículo para recrutamento
         </a>
     </div>
@@ -300,10 +331,8 @@
 </footer>
 
 <script>
-    // Script para o efeito de bolhas no Canvas
     const canvas = document.getElementById('bubble-canvas');
     const ctx = canvas.getContext('2d');
-
     let particlesArray;
 
     function resize() {
