@@ -3,130 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R.A LIMPEZA | Profissionalismo e Higiene</title>
+    <title>R.A LIMPEZA - Serviços Profissionais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --azul-claro: #f0f9ff;
-            --azul-medio: #4facfe;
+            --azul-primario: #0f3443;
+            --azul-claro: #34e89e; /* Tom mais moderno/limpo */
             --verde-suave: #2ecc71;
-            --texto: #2c3e50;
+            --branco: #ffffff;
+            --cinza-fundo: #f8fafc;
+            --texto: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
+            background-color: var(--cinza-fundo);
             color: var(--texto);
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO COM BOLHAS */
+        /* Header Glassmorphism */
         header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.5rem; 
+            color: var(--azul-primario);
+            letter-spacing: -1px;
+        }
+
+        .logo img {
+            height: 50px; 
+            margin-right: 12px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--azul-primario);
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
             position: relative;
-            background: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 100%);
-            padding: 60px 20px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--verde-suave);
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero com Bolhas */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #0f3443, #34e89e);
+            color: var(--branco);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             overflow: hidden;
-            border-bottom: 2px solid #f0f0f0;
+            padding: 0 5%;
         }
 
-        .logo-img {
-            height: 80px;
-            position: relative;
-            z-index: 10;
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            position: relative;
-            z-index: 10;
-            font-size: 2.5rem;
-            color: #1a5f7a;
-        }
-
-        /* ANIMAÇÃO DE BOLHAS */
-        .bubble {
+        /* O Canvas será onde as bolhas aparecem */
+        #bubble-canvas {
             position: absolute;
-            bottom: -50px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-400px); opacity: 0; }
-        }
-
-        /* SEÇÃO SOBRE PROFISSIONAL */
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            display: flex;
-            gap: 40px;
-            padding: 0 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .conteudo { flex: 1; min-width: 300px; }
-        
-        .imagem-container { flex: 1; min-width: 300px; }
-        
-        .imagem-container img {
+            top: 0;
+            left: 0;
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        h2 { color: #1a5f7a; font-size: 2rem; margin-bottom: 20px; }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
 
-        .lista-beneficios {
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Tabela de Preços Profissional */
+        .cards-precos {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .item { display: flex; align-items: center; gap: 10px; font-weight: 600; }
-        .item i { color: var(--verde-suave); font-size: 1.2rem; }
+        .card {
+            background: var(--branco);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card.featured {
+            border: 2px solid var(--verde-suave);
+            transform: scale(1.05);
+        }
+
+        /* Estilos de Contato e Vagas */
+        .contato {
+            background: #0f3443;
+            color: white;
+            padding: 100px 5%;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .btn-contato {
+            background: var(--verde-suave);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+            transition: 0.3s;
+        }
+
+        .trabalhe-conosco {
+            padding: 40px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        footer {
+            padding: 30px;
+            background: #e2e8f0;
+            color: #64748b;
+            font-size: 0.85rem;
+            text-align: center;
+        }
 
         @media (max-width: 768px) {
-            .container { flex-direction: column; text-align: center; }
-            .lista-beneficios { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; } /* Sugestão: adicione um menu hamburguer depois */
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="bubble" style="width: 40px; height: 40px; left: 15%; animation-delay: 0s;"></div>
-    <div class="bubble" style="width: 20px; height: 20px; left: 40%; animation-delay: 2s;"></div>
-    <div class="bubble" style="width: 50px; height: 50px; left: 75%; animation-delay: 1s;"></div>
-    
-    <img src="logo.png" alt="R.A LIMPEZA" class="logo-img">
-    <h1>Excelência em cada detalhe</h1>
+    <div class="logo">
+        <img src="logo.png" alt="R.A LIMPEZA">
+        R.A LIMPEZA
+    </div>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Orçamento</a>
+        <a href="#trabalhe">Vagas</a>
+    </nav>
 </header>
 
-<section class="container">
-    <div class="conteudo">
-        <h2>Sobre a R.A LIMPEZA</h2>
-        <p>Elevamos o padrão de higienização no mercado corporativo. Entendemos que um ambiente limpo é sinônimo de saúde, produtividade e uma excelente primeira impressão.</p>
-        
-        <div class="lista-beneficios">
-            <div class="item"><i class="fas fa-check-circle"></i> Equipe Treinada</div>
-            <div class="item"><i class="fas fa-leaf"></i> Insumos Sustentáveis</div>
-            <div class="item"><i class="fas fa-clock"></i> Pontualidade</div>
-            <div class="item"><i class="fas fa-hand-holding-usd"></i> Gestão Transparente</div>
-        </div>
-    </div>
-
-    <div class="imagem-container">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&w=800" alt="Limpeza Profissional">
+<section class="hero">
+    <canvas id="bubble-canvas"></canvas>
+    <div class="hero-content">
+        <h1>Excelência em Higienização Empresarial</h1>
+        <p>Soluções premium em limpeza para empresas que prezam por saúde e profissionalismo.</p>
+        <a href="#contato" class="btn-contato" style="margin-top: 0;">Começar Agora</a>
     </div>
 </section>
+
+<section class="sobre" id="sobre" style="padding: 100px 5%;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span style="color: var(--verde-suave); font-weight: bold; text-transform: uppercase;">Quem Somos</span>
+        <h2 style="font-size: 2.5rem; margin: 10px 0 20px;">Compromisso com a sua Saúde</h2>
+        <p style="font-size: 1.1rem; color: #636e72;">
+            A <strong>R.A LIMPEZA</strong> utiliza tecnologia e processos rigorosos para garantir que seu escritório ou consultório seja um ambiente impecável para clientes e colaboradores.
+        </p>
+    </div>
+</section>
+
+<section class="precos" id="planos" style="padding: 80px 5%; background: #fdfdfd;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2.2rem;">Planos Sob Medida</h2>
+        <div class="cards-precos">
+            <div class="card">
+                <h3 style="color: #636e72;">Intermediário</h3>
+                <p>2x por semana</p>
+                <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: var(--azul-primario);">
+                    <small style="font-size: 1rem;">R$</small>1.800
+                </div>
+                <ul style="list-style: none; text-align: left; margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Insumos Premium Inclusos</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Higienização de Banheiros</li>
+                </ul>
+            </div>
+
+            <div class="card featured">
+                <div style="background: var(--verde-suave); color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; font-size: 0.7rem; margin-bottom: 15px; font-weight: bold;">MAIS POPULAR</div>
+                <h3 style="color: var(--verde-suave);">Plano Business</h3>
+                <p>5x por semana (Diário)</p>
+                <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: var(--azul-primario);">
+                    <small style="font-size: 1rem;">R$</small>3.500
+                </div>
+                <ul style="list-style: none; text-align: left; margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Limpeza Diária Completa</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Emissão de Nota Fiscal</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Supervisor Dedicado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <div class="container" style="text-align: center;">
+        <h2>Solicite um Orçamento</h2>
+        <p style="margin-top: 10px; opacity: 0.8;">Respondemos em menos de 30 minutos via WhatsApp.</p>
+        
+        <a href="https://wa.me/5551995069369" class="btn-contato" target="_blank">
+            <i class="fab fa-whatsapp"></i> FALAR COM CONSULTOR
+        </a>
+        <p style="margin-top: 20px; font-size: 0.9rem;"><i class="far fa-envelope"></i> r.a.limpezaempresarial@gmail.com</p>
+    </div>
+</section>
+
+<section class="trabalhe-conosco" id="trabalhe">
+    <div class="container">
+        <h3 style="font-size: 1.1rem; color: #666;">Quer fazer parte da nossa equipe?</h3>
+        <a href="https://wa.me/5551995069369?text=Olá,%20tenho%20interesse%20em%20vagas%20de%20trabalho" class="btn-whats-vagas" style="color: #25d366; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: block; margin-top: 10px;">
+            <i class="fab fa-whatsapp"></i> Enviar currículo para recrutamento
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 R.A LIMPEZA - Todos os direitos reservados<br>
+    <small>CNPJ: 65.231.010/0001-83</small></p>
+</footer>
+
+<script>
+    // Script para o efeito de bolhas no Canvas
+    const canvas = document.getElementById('bubble-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particlesArray;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 15 + 1;
+            this.speedY = Math.random() * 1 + 0.2;
+            this.opacity = Math.random() * 0.5;
+        }
+        update() {
+            this.y -= this.speedY;
+            if (this.y < -10) {
+                this.y = canvas.height + 10;
+                this.x = Math.random() * canvas.width;
+            }
+        }
+        draw() {
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        for (let i = 0; i < 50; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+</script>
 
 </body>
 </html>
