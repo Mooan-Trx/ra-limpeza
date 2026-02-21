@@ -3,344 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R.A LIMPEZA | Soluções Corporativas de Higienização</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <title>R.A LIMPEZA | Soluções Corporativas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --azul-profundo: #1a5f7a;
-            --azul-agua: #4facfe;
-            --verde-folha: #00f2fe; /* Base para o gradiente animado */
-            --verde-fresco: #2ecc71;
+            /* Cores mais claras solicitadas */
+            --azul-claro: #e0f7fa;
+            --verde-claro: #e8f5e9;
+            --azul-texto: #1a5f7a;
+            --verde-detalhe: #2ecc71;
             --branco: #ffffff;
-            --cinza-fundo: #f8fafc;
-            --texto-corpo: #444;
-            --texto-titulo: #0f172a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-        body {
-            background-color: var(--cinza-fundo);
-            color: var(--texto-corpo);
-            line-height: 1.6;
-        }
-
-        /* --- CABEÇALHO INTERATIVO COM EFEITO ÁGUA --- */
+        /* --- CABEÇALHO COM BOLHAS --- */
         header {
-            background: linear-gradient(-45deg, #4facfe, #00f2fe, #2ecc71, #1a5f7a);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            font-size: 1.6rem; 
-            color: var(--branco);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .logo img {
-            height: 50px; 
-            margin-right: 12px;
-            filter: brightness(0) invert(1); /* Deixa a logo branca se for escura */
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--branco);
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: 0.3s;
             position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--branco);
-            transition: 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            background: #fff;
-            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--azul-claro), var(--verde-claro));
+            padding: 40px 5%;
+            overflow: hidden; /* Corta as bolhas que saem do topo */
             text-align: center;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .hero h1 { 
-            font-size: 3rem; 
-            color: var(--azul-profundo); 
-            margin-bottom: 20px;
-            font-weight: 800;
+        .logo-container {
+            position: relative;
+            z-index: 10; /* Fica acima das bolhas */
+            margin-bottom: 15px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #64748b;
+        .logo-img {
+            height: 70px; /* Ajuste o tamanho da sua logo aqui */
+            width: auto;
         }
 
-        /* --- SEÇÃO SOBRE PROFISSIONAL --- */
-        .sobre {
-            background: var(--branco);
-            padding: 80px 5%;
-        }
-
-        .container { max-width: 1100px; margin: 0 auto; }
-
-        .sobre-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .sobre-content h2 {
-            color: var(--azul-profundo);
+        header h1 {
+            color: var(--azul-texto);
+            position: relative;
+            z-index: 10;
             font-size: 2.2rem;
-            margin-bottom: 20px;
         }
 
-        .sobre-content p {
-            margin-bottom: 20px;
-            text-align: justify;
+        /* Animação das Bolhas */
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: subir 6s infinite ease-in;
+            z-index: 1;
         }
 
-        .diferenciais {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        @keyframes subir {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-400px); opacity: 0; }
         }
 
-        .dif-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            color: var(--azul-profundo);
-        }
-
-        .dif-item i {
-            color: var(--verde-fresco);
-            font-size: 1.2rem;
-        }
-
-        /* --- CARDS DE PLANOS --- */
-        .precos { padding: 80px 5%; }
+        /* --- SEÇÃO SOBRE --- */
+        .sobre { padding: 80px 5%; background: white; }
+        .container { max-width: 1100px; margin: 0 auto; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         
-        .cards-precos {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
+        .sobre-content { flex: 1; min-width: 300px; }
+        .sobre-content h2 { color: var(--azul-texto); margin-bottom: 20px; font-size: 2rem; }
+        
+        .sobre-imagem { flex: 1; min-width: 300px; }
+        .sobre-imagem img { 
+            width: 100%; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
         }
 
-        .card {
-            background: var(--branco);
-            padding: 40px;
-            border-radius: 20px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
+        .diferenciais { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .dif-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--azul-texto); }
+        .dif-item i { color: var(--verde-detalhe); }
 
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .card.destaque {
-            border: 2px solid var(--verde-fresco);
-            position: relative;
-        }
-
-        .preco-valor {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--azul-profundo);
-            margin: 20px 0;
-        }
-
-        /* --- CONTATO E RODAPÉ --- */
-        .contato {
-            background: var(--azul-profundo);
-            color: var(--branco);
-            padding: 80px 5%;
-            text-align: center;
-            border-radius: 50px 50px 0 0;
-        }
-
-        .btn-contato {
-            display: inline-block;
-            background: var(--verde-fresco);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
-            transition: 0.3s;
-        }
-
-        .btn-contato:hover { background: #27ae60; transform: scale(1.05); }
-
-        footer {
-            background: #111;
-            color: #888;
-            text-align: center;
-            padding: 30px;
-            font-size: 0.85rem;
-        }
-
-        /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
-            .sobre-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
-            header { flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; font-size: 0.8rem; }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">
-        <img src="logo.png" alt="R.A LIMPEZA">
-        R.A LIMPEZA
+    <div class="bubble" style="width: 40px; height: 40px; left: 10%; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 20px; height: 20px; left: 25%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 50px; height: 50px; left: 70%; animation-delay: 1s;"></div>
+    <div class="bubble" style="width: 30px; height: 30px; left: 85%; animation-delay: 4s;"></div>
+
+    <div class="logo-container">
+        <img src="logo.png" alt="R.A LIMPEZA" class="logo-img">
     </div>
-    <nav>
-        <a href="#sobre">Sobre Nós</a>
-        <a href="#planos">Planos</a>
-        <a href="#contato">Orçamento</a>
-        <a href="#trabalhe">Vagas</a>
-    </nav>
+    <h1>Excelência em cada detalhe</h1>
 </header>
 
-<section class="hero">
+<section class="sobre">
     <div class="container">
-        <h1>Ambientes que Inspiram Confiança</h1>
-        <p>Especialistas em higienização técnica e conservação patrimonial para empresas que não abrem mão da excelência.</p>
-    </div>
-</section>
-
-<section class="sobre" id="sobre">
-    <div class="container">
-        <div class="sobre-grid">
-            <div class="sobre-content">
-                <h2>Excelência em cada detalhe</h2>
-                <p>A <strong>R.A LIMPEZA</strong> nasceu com o propósito de elevar o padrão de higienização no mercado corporativo. Entendemos que um ambiente limpo não é apenas estética, é saúde, produtividade e a primeira impressão para seus clientes.</p>
-                <p>Nossa equipe é treinada para atuar com discrição e eficiência, utilizando produtos de alta performance que garantem a segurança biológica do seu espaço de trabalho.</p>
-                
-                <div class="diferenciais">
-                    <div class="dif-item"><i class="fas fa-shield-alt"></i> Equipe Treinada</div>
-                    <div class="dif-item"><i class="fas fa-leaf"></i> Insumos Sustentáveis</div>
-                    <div class="dif-item"><i class="fas fa-clock"></i> Pontualidade Rigorosa</div>
-                    <div class="dif-item"><i class="fas fa-file-invoice-dollar"></i> Gestão Transparente</div>
-                </div>
+        <div class="sobre-content">
+            <h2>Sobre Nós</h2>
+            <p>A <strong>R.A LIMPEZA</strong> eleva o padrão de higienização corporativa, focando em saúde e produtividade.</p>
+            
+            <div class="diferenciais">
+                <div class="dif-item"><i class="fas fa-shield-alt"></i> Equipe Treinada</div>
+                <div class="dif-item"><i class="fas fa-leaf"></i> Insumos Sustentáveis</div>
+                <div class="dif-item"><i class="fas fa-clock"></i> Pontualidade</div>
+                <div class="dif-item"><i class="fas fa-file-invoice-dollar"></i> Gestão</div>
             </div>
-            <div class="sobre-imagem">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&w=800&q=80" alt="Limpeza Profissional" style="width: 100%;">
-</div>
+        </div>
+
+        <div class="sobre-imagem">
+            <img src="limpeza-profissional.jpg" alt="Limpeza Profissional">
         </div>
     </div>
 </section>
-
-<section class="precos" id="planos">
-    <div class="container">
-        <h2 style="text-align: center; color: var(--azul-profundo); font-size: 2.2rem;">Soluções Sob Medida</h2>
-        <p style="text-align: center; margin-bottom: 20px;">Escolha a frequência ideal para o fluxo da sua empresa.</p>
-        
-        <div class="cards-precos">
-            <div class="card">
-                <h3>Intermediário</h3>
-                <p>Manutenção Estratégica</p>
-                <div class="preco-valor">R$ 1.800<span style="font-size: 1rem;">/mês</span></div>
-                <ul style="list-style: none; text-align: left; margin: 20px 0;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> 2 Visitas Semanais</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Todos os Insumos Inclusos</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Cronograma de Limpeza Pesada</li>
-                </ul>
-            </div>
-
-            <div class="card destaque">
-                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--verde-fresco); color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MAIS CONTRATADO</div>
-                <h3 style="color: var(--verde-fresco);">Business Pro</h3>
-                <p>Máxima Performance</p>
-                <div class="preco-valor">R$ 3.500<span style="font-size: 1rem;">/mês</span></div>
-                <ul style="list-style: none; text-align: left; margin: 20px 0;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Atendimento Diário (Seg a Sex)</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Reposição de Descartáveis</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Supervisão Mensal In Loco</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-fresco);"></i> Emissão de NF-e Simplificada</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="contato" id="contato">
-    <div class="container">
-        <h2>Pronto para transformar seu ambiente?</h2>
-        <p>Receba um orçamento detalhado em menos de 24 horas.</p>
-        
-        <div style="margin-top: 30px; font-size: 1.1rem;">
-            <span><i class="fab fa-whatsapp"></i> (51) 99506-9369</span>
-            <span style="margin: 0 20px;">|</span>
-            <span><i class="far fa-envelope"></i> r.a.limpezaempresarial@gmail.com</span>
-        </div>
-
-        <a href="https://wa.me/5551995069369" class="btn-contato" target="_blank">
-            <i class="fab fa-whatsapp"></i> SOLICITAR CONSULTORIA GRÁTIS
-        </a>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2026 R.A LIMPEZA - Especialistas em Conservação Patrimonial</p>
-        <p style="margin-top: 10px; font-size: 0.7rem;">CNPJ: 65.231.010/0001-83</p>
-    </div>
-</footer>
 
 </body>
 </html>
-
