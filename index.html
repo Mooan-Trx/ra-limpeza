@@ -129,28 +129,6 @@
             margin-top: 30px;
         }
 
-        /* Seção Foto e Texto */
-        .secao-foto-texto {
-            padding: 80px 5%;
-            background: var(--branco);
-        }
-        .container-flex {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        .bloco-imagem { flex: 1; }
-        .bloco-imagem img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .bloco-texto { flex: 1; }
-        .bloco-texto h2 { color: var(--verde-suave); font-size: 2.2rem; margin-bottom: 20px; }
-        .bloco-texto p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; color: var(--texto); }
-
         /* Cards de Preços */
         .cards-precos {
             display: grid;
@@ -177,6 +155,7 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
+            color: var(--texto); /* Cor padrão escura para ambos */
         }
         .preco-valor span {
             font-size: 1rem;
@@ -199,42 +178,23 @@
         .btn-contato:hover { background: #27ae60; transform: scale(1.05); }
 
         .quem-somos { text-align: center; padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
+        .secao-foto-texto { padding: 80px 5%; background: var(--branco); }
+        .container-flex { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
+        .bloco-imagem img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .bloco-texto h2 { color: var(--verde-suave); font-size: 2.2rem; margin-bottom: 20px; }
+        .bloco-texto p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; color: var(--texto); }
+
         .contato { background: #0f3443; color: white; padding: 80px 5%; border-radius: 50px 50px 0 0; text-align: center; margin-top: 50px; }
 
-        /* Seção Trabalhe Conosco (Versão Compacta) */
-        .trabalhe-conosco {
-            padding: 30px 5%; 
-            text-align: center;
-            background-color: var(--cinza-fundo);
-            border-top: 1px solid #eee;
-        }
-        .trabalhe-conosco h2 { 
-            font-size: 1.5rem; 
-            color: var(--azul-primario); 
-            margin-bottom: 8px; 
-        }
-        .trabalhe-conosco p { 
-            font-size: 0.95rem; 
-            margin-bottom: 15px; 
-        }
-        .btn-trabalhe {
-            background: var(--azul-primario);
-            padding: 10px 25px; 
-            font-size: 0.9rem;
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-trabalhe:hover { opacity: 0.9; transform: translateY(-2px); }
+        .trabalhe-conosco { padding: 30px 5%; text-align: center; background-color: var(--cinza-fundo); border-top: 1px solid #eee; }
+        .trabalhe-conosco h2 { font-size: 1.5rem; color: var(--azul-primario); margin-bottom: 8px; }
+        .trabalhe-conosco p { font-size: 0.95rem; margin-bottom: 15px; }
+        .btn-trabalhe { background: var(--azul-primario); padding: 10px 25px; font-size: 0.9rem; border-radius: 50px; color: white; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             nav { display: none; }
             .container-flex { flex-direction: column; text-align: center; }
-            .hero { height: 60vh; }
         }
     </style>
 </head>
@@ -277,7 +237,6 @@
         <div class="bloco-texto">
             <h2>Qualidade em cada detalhe</h2>
             <p>
-                Nossa metodologia de trabalho foca na eliminação de resíduos e na desinfecção total de superfícies de toque. 
                 Utilizamos produtos de nível profissional que não apenas limpam, mas preservam o patrimônio da sua empresa.
             </p>
             <div style="text-align: left; display: inline-block;">
@@ -302,7 +261,7 @@
             <div style="background: var(--verde-suave); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;">MAIS POPULAR</div>
             <h3 style="color: var(--verde-suave);">Melhor plano</h3>
             <p>5x por semana (Diário)</p>
-            <div class="preco-valor" style="color: var(--verde-suave);">R$ 3.500 <span style="color: #636e72;">/ mês</span></div>
+            <div class="preco-valor">R$ 3.500 <span>/ mês</span></div>
             <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Diário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
     </div>
