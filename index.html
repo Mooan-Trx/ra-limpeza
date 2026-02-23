@@ -125,7 +125,7 @@
         .hero-content { z-index: 2; max-width: 800px; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; }
         
-        /* Ajuste solicitado: Espaçamento do botão no Hero */
+        /* Espaçamento do botão no Hero */
         .hero .btn-contato {
             margin-top: 30px;
         }
@@ -164,7 +164,6 @@
             padding: 40px;
             border-radius: 20px;
             text-align: center;
-            /* Ajuste solicitado: Borda verde em todos os cards */
             border: 2px solid var(--verde-suave);
             transition: 0.4s;
             position: relative;
@@ -188,12 +187,34 @@
         .quem-somos { text-align: center; padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
         .contato { background: #0f3443; color: white; padding: 80px 5%; border-radius: 50px 50px 0 0; text-align: center; margin-top: 50px; }
 
-        /* Seção Trabalhe Conosco */
+        /* Seção Trabalhe Conosco (Versão Compacta) */
         .trabalhe-conosco {
-            padding: 60px 5%;
+            padding: 30px 5%; /* Padding reduzido */
             text-align: center;
             background-color: var(--cinza-fundo);
+            border-top: 1px solid #eee;
         }
+        .trabalhe-conosco h2 { 
+            font-size: 1.5rem; /* Título menor */
+            color: var(--azul-primario); 
+            margin-bottom: 8px; 
+        }
+        .trabalhe-conosco p { 
+            font-size: 0.95rem; /* Texto menor */
+            margin-bottom: 15px; 
+        }
+        .btn-trabalhe {
+            background: var(--azul-primario);
+            padding: 10px 25px; /* Botão menor */
+            font-size: 0.9rem;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-trabalhe:hover { opacity: 0.9; transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -282,10 +303,10 @@
 </section>
 
 <section class="trabalhe-conosco">
-    <h2 style="color: var(--azul-primario); margin-bottom: 15px;">Faça parte da nossa equipe</h2>
-    <p style="margin-bottom: 25px;">Estamos sempre em busca de profissionais dedicados para crescer conosco.</p>
-    <a href="https://wa.me/5551995069369?text=Olá! Gostaria de enviar meu currículo e saber mais sobre oportunidades de trabalho." class="btn-contato" style="background: var(--azul-primario);">
-        <i class="fas fa-briefcase"></i> TRABALHE CONOSCO
+    <h2>Trabalhe Conosco</h2>
+    <p>Envie seu currículo para futuras oportunidades.</p>
+    <a href="https://wa.me/5551995069369?text=Olá! Gostaria de enviar meu currículo para futuras vagas." class="btn-trabalhe">
+        <i class="fas fa-briefcase"></i> ENVIAR CURRÍCULO
     </a>
 </section>
 
