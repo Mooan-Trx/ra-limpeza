@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R.A LIMPEZA - Serviços Profissionais</title>
     
-    <meta name="description" content="R.A Limpeza: Especialista em higienização técnica e conservação para empresas e escritórios.">
+    <link rel="icon" type="image/png" href="favicon.png">
     
+    <meta name="description" content="R.A Limpeza: Especialista em higienização técnica e conservação para empresas e escritórios.">
+    <meta property="og:title" content="R.A LIMPEZA - Serviços Profissionais">
+    <meta property="og:description" content="Excelência em higienização empresarial e conservação técnica.">
+    <meta property="og:image" content="logo.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -119,8 +123,7 @@
         }
 
         .hero-content { z-index: 2; max-width: 800px; }
-
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; }
 
         /* Nova Seção: Foto e Texto */
         .secao-foto-texto {
@@ -141,10 +144,10 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         .bloco-texto { flex: 1; }
-        .bloco-texto h2 { color: var(--verde-suave); font-size: 2rem; margin-bottom: 20px; }
-        .bloco-texto p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; }
+        .bloco-texto h2 { color: var(--verde-suave); font-size: 2.2rem; margin-bottom: 20px; }
+        .bloco-texto p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; color: var(--texto); }
 
-        /* Estilos Existentes de Cards e Contato */
+        /* Cards de Preços */
         .cards-precos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -159,8 +162,8 @@
             border: 1px solid #eee;
             transition: 0.4s;
         }
-        .card:hover { transform: translateY(-10px); }
-        .card.featured { border: 2px solid var(--verde-suave); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .card.featured { border: 2px solid var(--verde-suave); position: relative; }
 
         .btn-contato {
             background: var(--verde-suave);
@@ -171,16 +174,19 @@
             font-weight: bold;
             display: inline-block;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn-contato:hover { background: #27ae60; transform: scale(1.05); }
 
-        .quem-somos { text-align: center; padding: 60px 20px; max-width: 900px; margin: 0 auto; }
-        .contato { background: #0f3443; color: white; padding: 80px 5%; border-radius: 50px 50px 0 0; text-align: center; }
+        .quem-somos { text-align: center; padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
+        .contato { background: #0f3443; color: white; padding: 80px 5%; border-radius: 50px 50px 0 0; text-align: center; margin-top: 50px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             nav { display: none; }
             .container-flex { flex-direction: column; text-align: center; }
+            .hero { height: 60vh; }
         }
     </style>
 </head>
@@ -203,13 +209,13 @@
     <div class="hero-content">
         <h1>Excelência em Higienização Empresarial</h1>
         <p>Soluções premium em limpeza para empresas que prezam por saúde e profissionalismo.</p>
-        <a href="#contato" class="btn-contato">Começar Agora</a>
+        <a href="#planos" class="btn-contato">Ver Planos</a>
     </div>
 </section>
 
 <section class="quem-somos" id="sobre">
     <h2 style="color: var(--verde-suave); font-size: 2.5rem; margin-bottom: 20px;">Quem somos!</h2>
-    <p style="font-weight: bold; text-transform: uppercase; line-height: 1.6; margin-bottom: 20px; color: #1a2a3a;">
+    <p style="font-weight: bold; text-transform: uppercase; line-height: 1.6; color: #1a2a3a;">
         A R.A LIMPEZA é uma empresa especializada em conservação e higienização técnica para o setor corporativo. 
         Garantimos segurança contábil (MEI) e excelência operacional para que sua empresa foque no crescimento.
     </p>
@@ -226,12 +232,11 @@
                 Nossa metodologia de trabalho foca na eliminação de resíduos e na desinfecção total de superfícies de toque. 
                 Utilizamos produtos de nível profissional que não apenas limpam, mas preservam o patrimônio da sua empresa.
             </p>
-            <p>
-                <strong>Diferenciais:</strong><br>
-                <i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Atendimento personalizado<br>
-                <i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Equipamentos de ponta<br>
-                <i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Pontualidade e discrição
-            </p>
+            <div style="text-align: left; display: inline-block;">
+                <p><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Atendimento personalizado</p>
+                <p><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Equipamentos de ponta</p>
+                <p><i class="fas fa-check-circle" style="color: var(--verde-suave);"></i> Pontualidade e discrição</p>
+            </div>
         </div>
     </div>
 </section>
@@ -243,14 +248,14 @@
             <h3 style="color: #636e72;">Intermediário</h3>
             <p>2x por semana</p>
             <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">R$ 1.800</div>
-            <a href="https://wa.me/5551995069369?text=Interesse no Plano Intermediário" class="btn-contato">CONTRATAR</a>
+            <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Intermediário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
         <div class="card featured">
-            <div style="background: var(--verde-suave); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem; margin-bottom: 10px;">MAIS POPULAR</div>
+            <div style="background: var(--verde-suave); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;">MAIS POPULAR</div>
             <h3 style="color: var(--verde-suave);">Melhor plano</h3>
             <p>5x por semana (Diário)</p>
             <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">R$ 3.500</div>
-            <a href="https://wa.me/5551995069369?text=Interesse no Plano Diário" class="btn-contato">CONTRATAR</a>
+            <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Diário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
     </div>
 </section>
@@ -258,7 +263,7 @@
 <section class="contato" id="contato">
     <h2>Solicite um Orçamento</h2>
     <p style="margin: 20px 0; opacity: 0.8;">Respondemos rapidamente via WhatsApp.</p>
-    <a href="https://wa.me/5551995069369" class="btn-contato" style="background: #25d366;">
+    <a href="https://wa.me/5551995069369" class="btn-contato" style="background: #25d366;" target="_blank">
         <i class="fab fa-whatsapp"></i> FALAR COM CONSULTOR
     </a>
 </section>
@@ -305,6 +310,7 @@
     }
 
     function init() {
+        particlesArray = [];
         for (let i = 0; i < 40; i++) particlesArray.push(new Particle());
     }
 
