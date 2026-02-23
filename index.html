@@ -125,12 +125,11 @@
         .hero-content { z-index: 2; max-width: 800px; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; }
         
-        /* Espaçamento do botão no Hero */
         .hero .btn-contato {
             margin-top: 30px;
         }
 
-        /* Nova Seção: Foto e Texto */
+        /* Seção Foto e Texto */
         .secao-foto-texto {
             padding: 80px 5%;
             background: var(--branco);
@@ -169,6 +168,21 @@
             position: relative;
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        .preco-valor {
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .preco-valor span {
+            font-size: 1rem;
+            color: #636e72;
+            font-weight: 400;
+        }
 
         .btn-contato {
             background: var(--verde-suave);
@@ -189,23 +203,23 @@
 
         /* Seção Trabalhe Conosco (Versão Compacta) */
         .trabalhe-conosco {
-            padding: 30px 5%; /* Padding reduzido */
+            padding: 30px 5%; 
             text-align: center;
             background-color: var(--cinza-fundo);
             border-top: 1px solid #eee;
         }
         .trabalhe-conosco h2 { 
-            font-size: 1.5rem; /* Título menor */
+            font-size: 1.5rem; 
             color: var(--azul-primario); 
             margin-bottom: 8px; 
         }
         .trabalhe-conosco p { 
-            font-size: 0.95rem; /* Texto menor */
+            font-size: 0.95rem; 
             margin-bottom: 15px; 
         }
         .btn-trabalhe {
             background: var(--azul-primario);
-            padding: 10px 25px; /* Botão menor */
+            padding: 10px 25px; 
             font-size: 0.9rem;
             border-radius: 50px;
             color: white;
@@ -281,14 +295,14 @@
         <div class="card">
             <h3 style="color: #636e72;">Intermediário</h3>
             <p>2x por semana</p>
-            <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">R$ 1.800</div>
+            <div class="preco-valor">R$ 1.800 <span>/ mês</span></div>
             <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Intermediário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
         <div class="card">
             <div style="background: var(--verde-suave); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;">MAIS POPULAR</div>
             <h3 style="color: var(--verde-suave);">Melhor plano</h3>
             <p>5x por semana (Diário)</p>
-            <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">R$ 3.500</div>
+            <div class="preco-valor" style="color: var(--verde-suave);">R$ 3.500 <span style="color: #636e72;">/ mês</span></div>
             <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Diário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
     </div>
