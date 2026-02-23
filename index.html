@@ -124,6 +124,11 @@
 
         .hero-content { z-index: 2; max-width: 800px; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; }
+        
+        /* Ajuste: Espaçamento do botão no Hero */
+        .hero .btn-contato {
+            margin-top: 30px;
+        }
 
         /* Nova Seção: Foto e Texto */
         .secao-foto-texto {
@@ -159,11 +164,12 @@
             padding: 40px;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid #eee;
+            /* Ajuste: Borda verde em todos os cards */
+            border: 2px solid var(--verde-suave);
             transition: 0.4s;
+            position: relative;
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .card.featured { border: 2px solid var(--verde-suave); position: relative; }
 
         .btn-contato {
             background: var(--verde-suave);
@@ -250,7 +256,7 @@
             <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">R$ 1.800</div>
             <a href="https://wa.me/5551995069369?text=Olá! Gostaria de saber mais sobre o Plano Intermediário." class="btn-contato" target="_blank">CONTRATAR</a>
         </div>
-        <div class="card featured">
+        <div class="card">
             <div style="background: var(--verde-suave); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;">MAIS POPULAR</div>
             <h3 style="color: var(--verde-suave);">Melhor plano</h3>
             <p>5x por semana (Diário)</p>
